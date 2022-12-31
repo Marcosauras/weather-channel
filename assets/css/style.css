@@ -1,10 +1,7 @@
 main{
   height: 100vh;
-  background-color: bisque;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgb(196, 255, 219);
   height: vh100;
-  background-image: url(../images/lake-photo.png);
 }
 .list-group-item {
   line-height: 0.5;
@@ -38,7 +35,7 @@ header {
   margin: 5px;
   margin-top: 10px;
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(252, 252, 252);
 }
 .text-container{
   margin: 18px;

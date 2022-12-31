@@ -3,21 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Dino's Weather Dashboard</title>
   </head>
-  <body>
+  <body class="bg-sky-500/[.06]">
     <header class="Dashboard">
       <h1>Weather Dashboard</h1>
     </header>
-    <main class="container-fluid">
-      <div class="row">
+    <main >
+      <div class="">
         <!-- search bar and where the buttons will generate -->
-        <div class="col-12 col-md-3 search-container">
+        <div class="search-container">
           <form class="" id="city-search-form">
             <h3>Search for a City</h3>
             <input id="city" type="text" autofocus="true" class="form-input" />
@@ -27,22 +24,23 @@
           </form>
           <div class="past-search" id="past-search-btns"></div>
         </div>
+        <!-- this is where the weather will display -->
         <div class="all-weather">
-          <div class="row selected-city list-group" id="current-forecast">
+          <div class="selected-city list-group" id="current-forecast">
             <div>
               <h2 id="searched-cities"></h2>
               <div id="current-weather-container"></div>
             </div>
           </div>
-          <div class="row" id="five-day-forecast">
+          <div class="" id="five-day-forecast">
             <h2 class="text-container" id="forecast"></h2>
-            <div class="d-flex" id="five-day-forecast-container"></div>
+            <div class="grid sm:grid-cols-5" id="five-day-forecast-container"></div>
           </div>
         </div>
       </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
