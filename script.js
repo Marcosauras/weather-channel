@@ -74,16 +74,47 @@ let weatherFormSubmitHandler = function (city) {
   } else {
     return;
   }
-
 };
 
 function storePastSearch() {
   localStorage.setItem("cities", JSON.stringify(cities));
 };
 
-let createBtns = function(){
-  for(let i = 0; i < citiesFromLocalStorage.length; i++){
-    console.log("Hey")
+let createBtnsOnLoad = function(){
+  let citiesFromLocalStorage = JSON.parse(localStorage.getItem("cities"));
+  if(citiesFromLocalStorage === null){
+    return;
+  }else{
+    for(let i = 0; i < citiesFromLocalStorage.length; i++){
+      pastSearch = document.createElement("button");
+      pastSearch.textContent = citiesFromLocalStorage[i];
+      pastSearch.classList = "d-flex btn-light p-2 past-search-btn";
+      pastSearch.setAttribute("data-city", citiesFromLocalStorage[i]);
+      pastSearch.setAttribute("type", "submit");
+      pastSearchButton.prepend(pastSearch);
+    }
+  }
+};
+let createBtns = function(city){
+
+  if(city === null){
+    return;
+  }else{
+      pastSearch = document.createElement("button");
+      pastSearch.textContent = city;
+      pastSearch.classList = "d-flex btn-light p-2 past-search-btn";
+      pastSearch.setAttribute("data-city", city);
+      pastSearch.setAttribute("type", "submit");
+      pastSearchButton.prepend(pastSearch);
+  }
+};
+var pastWeatherSearchHandler = function (event) {
+  var city = event.target.getAttribute("data-city");
+  if (city) {
+    getCityWeather(city);
+    getFiveDayForecast(city);
+  } else {
+  return;
   }
 };
 
@@ -91,14 +122,14 @@ cityForm.addEventListener("submit", function(){
   event.preventDefault();
   let city = userCityInput.value.trim();
   weatherFormSubmitHandler(city);
-
   if(city == ""){
     return;
   } else{
   cities.push(city)
   userCityInput.value = "";
   storePastSearch();
-  // createBtns();
+  createBtns(city);
   }
-
 });
+pastSearchButton.addEventListener("click", pastWeatherSearchHandler);
+createBtnsOnLoad();
