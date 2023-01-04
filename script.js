@@ -49,6 +49,7 @@ let displayTodaysWeather = function (weather, citySearched) {
 let displayNextFiveDays = function (weather) {
   forecastContainer.textContent = "";
   forecastTitle.textContent = "Next 5 day Forecast";
+  forecastTitle.classList.add("m-3","justify-center")
 
   console.log(weather);
 
@@ -86,7 +87,7 @@ let createBtnsOnLoad = function(){
     for(let i = 0; i < cities.length; i++){
       pastSearch = document.createElement("button");
       pastSearch.textContent = cities[i];
-      pastSearch.classList = "d-flex btn-light p-2 past-search-btn";
+      pastSearch.classList = "my-1 block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out";
       pastSearch.setAttribute("data-city", cities[i]);
       pastSearch.setAttribute("type", "submit");
       pastSearchButton.prepend(pastSearch);
@@ -100,7 +101,7 @@ let createBtns = function(city){
   }else{
       pastSearch = document.createElement("button");
       pastSearch.textContent = city;
-      pastSearch.classList = "d-flex btn-light p-2 past-search-btn";
+      pastSearch.classList = "my-1 block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out";
       pastSearch.setAttribute("data-city", city);
       pastSearch.setAttribute("type", "submit");
       pastSearchButton.prepend(pastSearch);
