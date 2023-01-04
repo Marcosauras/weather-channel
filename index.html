@@ -4,37 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Dino's Weather Dashboard</title>
   </head>
   <body class="bg-sky-500/[.06]">
-    <header class="Dashboard">
-      <h1>Weather Dashboard</h1>
+    <header class="Dashboard bg-gray-500">
+      <h1 class="flex justify-center text-xl">Dino's Weather</h1>
     </header>
-    <main >
-      <div class="">
-        <!-- search bar and where the buttons will generate -->
-        <div class="search-container">
-          <form class="" id="city-search-form">
-            <h3>Search for a City</h3>
-            <input id="city" type="text" autofocus="true" class="form-input" />
-            <button class="btn btn-outline-secondary search-btn" type="submit">
-              Search
-            </button>
-          </form>
-          <div class="past-search" id="past-search-btns"></div>
+    <main>
+      <div>
+          <div class="m-5 flex  justify-center">
+          <!-- search bar and where the buttons will generate -->
+            <div class="mb-3 xl:w-96">
+              <form class="input-group relative flex flex-col flex-wrap items-stretch w-full mb-4" id="city-search-form">
+                <h3>Search for a City</h3>
+                <input
+                  id="city"
+                  type="text"
+                  autofocus="true"
+                  class="form-input form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"/>
+                <button
+                  class="btn inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                  type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
+        </div>
+        <div class="block">
+          <div class="past-search grid justify-center" id="past-search-btns"></div>
         </div>
         <!-- this is where the weather will display -->
         <div class="all-weather">
-          <div class="selected-city list-group" id="current-forecast">
+          <div class="selected-city list-group bg-white" id="current-forecast">
             <div>
               <h2 id="searched-cities"></h2>
-              <div id="current-weather-container"></div>
+              <div id="current-weather-container" class="justify-center m-5 bg-white rounded"></div>
             </div>
           </div>
           <div class="" id="five-day-forecast">
             <h2 class="text-container" id="forecast"></h2>
-            <div class="grid sm:grid-cols-5" id="five-day-forecast-container"></div>
+            <div
+              class="grid sm:grid-cols-5"
+              id="five-day-forecast-container"
+            ></div>
           </div>
         </div>
       </div>
