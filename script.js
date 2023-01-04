@@ -1,5 +1,7 @@
 // grab todays weather then display it in a big card
 // grab the next 5 days weather
+// create button for every search
+// have buttons save to local storage so they stay on local storage 
 
 cities = [];
 let cityForm = document.getElementById("city-search-form");
@@ -13,19 +15,15 @@ let pastSearchButton = document.getElementById("past-search-btns");
 // grabs weather
 var getCityWeather = function (city) {
   const apiKey = "63e93757f0a90bffa65499f50faef5b2";
-
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
-  )
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
     .then((res) => res.json())
     .then((data) => displayTodaysWeather(data));
 };
 let getFiveDayForecast = function (city) {
   const apiKey = "63e93757f0a90bffa65499f50faef5b2";
-
   fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`
-  )
+    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`)
     .then((res) => res.json())
     .then((data) => displayNextFiveDays(data));
 };
@@ -81,22 +79,22 @@ function storePastSearch() {
 };
 
 let createBtnsOnLoad = function(){
-  let citiesFromLocalStorage = JSON.parse(localStorage.getItem("cities"));
-  if(citiesFromLocalStorage === null){
+  let cities = JSON.parse(localStorage.getItem("cities"));
+  if(cities === null){
     return;
   }else{
-    for(let i = 0; i < citiesFromLocalStorage.length; i++){
+    for(let i = 0; i < cities.length; i++){
       pastSearch = document.createElement("button");
-      pastSearch.textContent = citiesFromLocalStorage[i];
+      pastSearch.textContent = cities[i];
       pastSearch.classList = "d-flex btn-light p-2 past-search-btn";
-      pastSearch.setAttribute("data-city", citiesFromLocalStorage[i]);
+      pastSearch.setAttribute("data-city", cities[i]);
       pastSearch.setAttribute("type", "submit");
       pastSearchButton.prepend(pastSearch);
     }
   }
 };
+// creates the buttons as they are searched
 let createBtns = function(city){
-
   if(city === null){
     return;
   }else{

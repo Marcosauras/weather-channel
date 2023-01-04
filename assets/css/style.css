@@ -13,7 +13,6 @@ main{
 header {
     display: flex;
     justify-content: center;
-  background: linear-gradient(to right, lightblue, blue, darkblue);
 }
 .search-btn, .form-input{
     margin-top: 5px;
